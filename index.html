@@ -19,15 +19,18 @@
                     x   0  1   2   3   4   5   6   7   8   9  10
                     y   10 9   8   7   6   5   4   3   2   1   0
                         50 90 130 170 210 240 280 320 360 400 440 -->
-                <circle class="normal unselected" cx="90" cy="360" r="10"/>
-                <circle class="normal unselected" cx="130" cy="280" r="10"/>
-                <circle class="normal unselected" cx="280" cy="360" r="10"/>
-                <circle class="normal unselected" cx="400" cy="90" r="10"/>
+                <circle id="(1,2)" cx="90" cy="360" r="10"/>
+                <circle id="(2,4)" cx="130" cy="280" r="10"/>
+                <circle id="(6,2)" cx="280" cy="360" r="10"/>
+                <circle id="(9,9)" cx="400" cy="90" r="10"/>
             </svg>
         </div>
 
         <div id="right" class="flex-item">
-            <!-- last point clicked, coordinate selectors, add point button -->
+            <div id="last-selected"></div>
+            <br>
+
+            <!-- coordinate selectors, "add point" button -->
         </div>
 
     </div>
@@ -35,11 +38,13 @@
     <h2>Acknowledgements</h2>
     <div id="acknowledgements">
         <ul>
-            <li></li>
+            <li>https://www.petercollingridge.co.uk/tutorials/svg/interactive/mouseover-effects/</li>
             <li></li>
             <li></li>
         </ul>
     </div>
+
+    <script src="main.js"></script>
 
 </body>
 

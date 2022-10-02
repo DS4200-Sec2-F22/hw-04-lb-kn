@@ -3,11 +3,43 @@
 
 <head>
     <meta charset=utf-8/>
+    <title>hw-04</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
+    <h1>hw-04: Event Handling</h1>
 
+    <div class="flex-container">
+        <div id="left" class="flex-item">
+            <svg id="frame">
+                <line id="x-axis" x1="50" y1="440" x2="440" y2="440"/>
+                <line id="y-axis" x1="50" y1="50" x2="50" y2="440"/>
+                <!-- the spacing between each number on the axis should be 40 px (fits 10 marks) 
+                    x   0  1   2   3   4   5   6   7   8   9  10
+                    y   10 9   8   7   6   5   4   3   2   1   0
+                        50 90 130 170 210 240 280 320 360 400 440 -->
+                <circle class="normal unselected" cx="90" cy="360" r="10"/>
+                <circle class="normal unselected" cx="130" cy="280" r="10"/>
+                <circle class="normal unselected" cx="280" cy="360" r="10"/>
+                <circle class="normal unselected" cx="400" cy="90" r="10"/>
+            </svg>
+        </div>
+
+        <div id="right" class="flex-item">
+            <!-- last point clicked, coordinate selectors, add point button -->
+        </div>
+
+    </div>
+
+    <h2>Acknowledgements</h2>
+    <div id="acknowledgements">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
 
 </body>
 

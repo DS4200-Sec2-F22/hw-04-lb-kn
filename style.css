@@ -32,21 +32,18 @@ h1, h2 {
 	stroke-width: 5;
 }
 
+circle {
+	fill: mediumpurple;
+	stroke: none;
+}
+
 /* Classes for user interactions */
 
 .highlight {
 	fill: orange;
 }
 
-.normal {
-	fill: mediumpurple;
-}
-
 .selected {
 	stroke: lightgreen;
 	stroke-width: 4;
-}
-
-.unselected {
-	stroke: none;
 }

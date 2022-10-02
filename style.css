@@ -1,0 +1,52 @@
+body {
+	font-family: Arial;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+.flex-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	padding: 15px;
+}
+
+#left {
+	flex: 60%;
+}
+
+#right {
+	flex: 40%;
+}
+
+#frame {
+	width: 500px;
+	height: 500px;
+}
+
+#x-axis, #y-axis {
+	stroke: darkblue;
+	stroke-width: 5;
+}
+
+/* Classes for user interactions */
+
+.highlight {
+	fill: orange;
+}
+
+.normal {
+	fill: mediumpurple;
+}
+
+.selected {
+	stroke: lightgreen;
+	stroke-width: 4;
+}
+
+.unselected {
+	stroke: none;
+}

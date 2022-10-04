@@ -1,6 +1,3 @@
-let points = document.getElementsByTagName("circle");
-
-console.log(points)
 // circle hover functions
 function circleHover(circle) {
 	let c = document.getElementById(circle.target.id);
@@ -25,50 +22,49 @@ function circleSelect(circle) {
 	textDiv.innerHTML = "Last point clicked: " + circle.target.id;
 }
 
+// parse through initial circles and apply hover and click functions
+let points = document.getElementsByTagName("circle");
 
-// parse through circles and apply hover and click functions
-function events(){
-	for (let i = 0; i < points.length; i++) {
-	console.log(points[i])
+for (let i = 0; i < points.length; i++) {
 	points[i].addEventListener("mouseover", circleHover);
 	points[i].addEventListener("mouseout", circleUnhover);
 	points[i].addEventListener("click", circleSelect);
-
 }
-}
-()
 
-// form submit functions
-
+// form submit function
 function submitClicked() {
-
-    // get information from inputs (this works because
-    // we only one form with inputs, if you had multiple forms
-    // with inputs you'd need to think of a different way to 
-    // grab the elements)
+	// get form information
     let xcoord = document.getElementById("xcoord"); 
     let ycoord = document.getElementById("ycoord");
 
-
+    // x-coordinate information
     let selectedIndex_x = xcoord.selectedIndex;
     let selectedOption_x = xcoord.options[selectedIndex_x];
+    let xValue = selectedOption_x.value;
+    let xText = selectedOption_x.text;
 
-    let xValue = selectedOption_x.value
-    let xText = selectedOption_x.text
-
+    // y-coordinate information
     let selectedIndex_y = ycoord.selectedIndex;
     let selectedOption_y = ycoord.options[selectedIndex_y];
+    let yValue = selectedOption_y.value;
+    let yText = selectedOption_y.text;
 
-    let yValue = selectedOption_y.value
-    let yText = selectedOption_y.text
+    // setting id and circle object for new point
+    let currentPointId = '(' + xText + ',' + yText + ')';
+    let newCircle = "<circle id=" + currentPointId + " cx=" + xValue + " cy=" + yValue + " r='10' >";
 
-    let currentPointId = '('+xText+','+yText+')'
+    // append to existing HTML frame
+    document.getElementById("frame").innerHTML += newCircle;
 
-    document.getElementById("frame").innerHTML += "<circle id=" +currentPointId +" cx="+xValue+ " cy=" +yValue+ " r='10' >";
-    events()
+    // add functionality to all circles
+	for (let i = 0; i < points.length; i++) {
+		points[i].addEventListener("mouseover", circleHover);
+		points[i].addEventListener("mouseout", circleUnhover);
+		points[i].addEventListener("click", circleSelect);
+	}
 }
 
-// Add event handler to button 
+// add event handler to button 
 document.getElementById("subButton").addEventListener('click', submitClicked);
 
 

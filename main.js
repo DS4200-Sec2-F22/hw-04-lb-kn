@@ -23,13 +23,16 @@ function circleSelect(circle) {
 }
 
 // parse through initial circles and apply hover and click functions
-let points = document.getElementsByTagName("circle");
-
-for (let i = 0; i < points.length; i++) {
-	points[i].addEventListener("mouseover", circleHover);
-	points[i].addEventListener("mouseout", circleUnhover);
-	points[i].addEventListener("click", circleSelect);
+function applyCircleFunctions() {
+	let points = document.getElementsByTagName("circle");
+	for (let i = 0; i < points.length; i++) {
+		points[i].addEventListener("mouseover", circleHover);
+		points[i].addEventListener("mouseout", circleUnhover);
+		points[i].addEventListener("click", circleSelect);
+	}
 }
+
+applyCircleFunctions();
 
 // form submit function
 function submitClicked() {
@@ -57,16 +60,8 @@ function submitClicked() {
     document.getElementById("frame").innerHTML += newCircle;
 
     // add functionality to all circles
-	for (let i = 0; i < points.length; i++) {
-		points[i].addEventListener("mouseover", circleHover);
-		points[i].addEventListener("mouseout", circleUnhover);
-		points[i].addEventListener("click", circleSelect);
-	}
+	applyCircleFunctions();
 }
 
 // add event handler to button 
 document.getElementById("subButton").addEventListener('click', submitClicked);
-
-
-
-

@@ -23,16 +23,12 @@ function circleSelect(circle) {
 }
 
 // parse through initial circles and apply hover and click functions
-function applyCircleFunctions() {
-	let points = document.getElementsByTagName("circle");
-	for (let i = 0; i < points.length; i++) {
-		points[i].addEventListener("mouseover", circleHover);
-		points[i].addEventListener("mouseout", circleUnhover);
-		points[i].addEventListener("click", circleSelect);
-	}
+let points = document.getElementsByTagName("circle");
+for (let i = 0; i < points.length; i++) {
+	points[i].addEventListener("mouseover", circleHover);
+	points[i].addEventListener("mouseout", circleUnhover);
+	points[i].addEventListener("click", circleSelect);
 }
-
-applyCircleFunctions();
 
 // form submit function
 function submitClicked() {
@@ -54,13 +50,21 @@ function submitClicked() {
 
     // setting id and circle object for new point
     let currentPointId = '(' + xText + ',' + yText + ')';
-    let newCircle = "<circle id=" + currentPointId + " cx=" + xValue + " cy=" + yValue + " r='10' >";
+
+    let newCircle = document.createElementNS("http://www.w3.org/2000/svg","circle");
+    newCircle.setAttribute("id", currentPointId);
+    newCircle.setAttribute("cx", xValue);
+    newCircle.setAttribute("cy", yValue);
+    newCircle.setAttribute("r", 10);
 
     // append to existing HTML frame
-    document.getElementById("frame").innerHTML += newCircle;
+    document.getElementById("frame").appendChild(newCircle);
 
-    // add functionality to all circles
-	applyCircleFunctions();
+    // add event handlers
+    justAdded = document.getElementById(currentPointId);
+    justAdded.addEventListener("mouseover", circleHover);
+    justAdded.addEventListener("mouseout", circleUnhover);
+    justAdded.addEventListener("click", circleSelect);
 }
 
 // add event handler to button 
